@@ -1,5 +1,3 @@
-/* || General setup */
-
 html, body {
     margin: 0;
     padding: 0;
@@ -7,7 +5,7 @@ html, body {
   
   html {
     font-size: 10px;
-    background-color: #a9a9a9;
+    background-color:gray;
   }
   
   body {
@@ -16,7 +14,6 @@ html, body {
     margin: 0 auto;
   }
   
-  /* || typography */
   
   h1, h2, h3 {
     font-family: 'Cinzel Decorative', cursive;
@@ -48,21 +45,20 @@ html, body {
     line-height: 1.5;
   }
   
-  /* || header layout */
-  
+   
   header {
     margin-bottom: 10px;
     display: flex;
     flex-flow: row wrap;
   }
-  
+/*   
   body > * {
     background-color: red;
     padding: 1%;
   }
-  
+   */
   main, header, nav, article, aside, footer, section {
-    background-color: rgba(0,255,0,0.5);
+    background-color:blue;
     padding: 1%;
   }
   
