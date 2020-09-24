@@ -132,7 +132,10 @@ html, body {
   aside img {
     max-width: 100%;
   }
-  
+  img{
+    height:200px;
+    
+  }
   footer {
     margin-top: 10px;
   }
