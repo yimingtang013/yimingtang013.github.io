@@ -125,12 +125,11 @@ html, body {
   
   aside a {
     display: block;
-    float: left;
     width: 50%;
   }
   
   aside img {
-    max-width: 100%;
+    max-width: 200%;
   }
  
   
