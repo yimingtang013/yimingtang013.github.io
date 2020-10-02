@@ -1,7 +1,7 @@
 body {
-  width: 90%;
-  min-width: 960px;
+  width: 960px;
   margin: 0 auto;
+  background-color: steelblue;
 }
 
 header {
@@ -12,18 +12,15 @@ header {
   padding: 1%;
 }
 
-header img {
-  display: block;
-  height: 80px;
-  padding-top:10px;
-}
 
 .container {
   width:30%;
   flex: .7;
   background-color: red;
   margin-right: 15px;
+  margin-bottom: 400px;
 }
+
 .second-container {
   flex-wrap: wrap;
   padding:10px;
@@ -34,6 +31,7 @@ header img {
 img {
   height:200px;
   margin-left:50px;
+  width:200px;
 }
 
 h1, h2, h3 {
