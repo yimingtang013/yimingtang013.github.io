@@ -1,23 +1,26 @@
-/* || General setup */
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 10px;
-  background-color: #a9a9a9;
-}
-
 body {
-  width: 80%;
-  min-width: 900px;
+  width: 90%;
+  min-width: 960px;
   margin: 0 auto;
 }
+
+header {
+  margin-bottom: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  background-color:#8A75F0;
+  padding: 1%;
+}
+
+header img {
+  display: block;
+  height: 80px;
+  padding-top:10px;
+}
+
 .container {
   width:30%;
-  flex: .5;
+  flex: .7;
   background-color: red;
   margin-right: 15px;
 }
@@ -27,21 +30,34 @@ body {
   flex:1;
   background-color:green;
 }
-/* || typography */
+
+img {
+  height:200px;
+  margin-left:50px;
+}
 
 h1, h2, h3 {
   font-family: 'Cinzel Decorative', cursive;
-  color: #2a2a2a;
+  color: white;
 }
 
 p {
-  font-family: 'Roboto Condensed', sans-serif;
-  color: #2a2a2a;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color:white;
+}
+
+ul{
+  font-size:1.6rem;
+  line-height:1.5;
+  color:white;
 }
 
 h1 {
   font-size: 4rem;
   text-align: left;
+  flex:5;
+  text-transform:uppercase;
 }
 
 h2 {
@@ -53,41 +69,8 @@ h3 {
   font-size: 2.2rem;
 }
 
-p {
-  font-size: 1.6rem;
-  line-height: 1.5;
-}
-
-/* || header layout */
-
-header {
-  margin-bottom: 15px;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-
-header, article {
-  background-color:skyblue;
-  padding: 1%;
-}
-
-h1 {
-  flex: 5;
-  text-transform: uppercase;
-}
-
-header img {
-  display: block;
-  height: 80px;
-  padding-top: 20.15px;
-}
-
 main {
   display: flex;
 }
 
-article,section {
-  flex: 20;
-}
 
