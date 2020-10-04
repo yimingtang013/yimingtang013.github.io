@@ -1,0 +1,79 @@
+html{
+    background-color:pink;
+  }
+  .body {
+    width: 960px;
+    margin: 0 auto;
+    background-color: steelblue;
+  }
+  
+  .header {
+    margin-bottom: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    background-color:#8A75F0;
+    padding: 1%;
+  }
+  
+  .wrapper {
+    width:30%;
+    flex: .7;
+    background-color: red;
+    margin-right: 15px;
+    margin-bottom: 400px;
+  }
+  
+  .second-wrapper {
+    flex-wrap: wrap;
+    padding:10px;
+    flex:1;
+    background-color:green;
+  }
+  
+  img {
+    height:200px;
+    margin-left:50px;
+    width:200px;
+  } 
+  
+  
+  p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color:white;
+  }
+  
+  ul{
+    font-size:1.6rem;
+    line-height:1.5;
+    color:white;
+  }
+  
+  h1 {
+    font-family: 'Peddana', serif;
+    color:white;
+    font-size: 4rem;
+    text-align: left;
+    flex:5;
+    text-transform:uppercase;
+  }
+  
+  h2 {
+    font-family: 'Sansita Swashed', cursive;
+    color:white;
+    font-size: 3rem;
+    text-align: left;
+  }
+  
+  h3 {
+    font-family: 'Sansita Swashed', cursive;
+    color:white;
+    font-size: 2.2rem;
+  }
+  
+  main {
+    display: flex;
+  }
+  
+  
+  
