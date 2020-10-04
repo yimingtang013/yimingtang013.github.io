@@ -15,7 +15,7 @@ html{
   }
   
   .wrapper {
-    width:30%;
+    width: 20%;
     flex: .7;
     background-color:lightcoral;
     margin-right: 15px;
@@ -23,6 +23,7 @@ html{
   }
   
   .second-wrapper {
+    width:80%;
     flex-wrap: wrap;
     padding:10px;
     flex:1;
@@ -81,6 +82,5 @@ html{
   main {
     display: flex;
   }
-  
   
   
