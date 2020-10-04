@@ -2,9 +2,8 @@ html{
     background-color:gray;
   }
   .body {
-    width: 960px;
+    width: 100%;
     margin: 0 auto;
-    background-color: steelblue;
   }
   
   .header {
@@ -18,16 +17,16 @@ html{
   .wrapper {
     width:30%;
     flex: .7;
-    background-color: red;
+    background-color:lightcoral;
     margin-right: 15px;
-    margin-bottom: 400px;
+    margin-bottom: 1000px;
   }
   
   .second-wrapper {
     flex-wrap: wrap;
     padding:10px;
     flex:1;
-    background-color:green;
+    background-color:skyblue;
   }
   
   img {
@@ -36,11 +35,18 @@ html{
     width:200px;
   } 
   
-  
   p {
     font-size: 1.6rem;
     line-height: 1.5;
     color:white;
+    text-align:left;
+  }
+
+  h4{
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color:white;
+    text-align: center; 
   }
   
   ul{
@@ -70,7 +76,7 @@ html{
     color:white;
     font-size: 2.2rem;
   }
-  
+
   main {
     display: flex;
   }
