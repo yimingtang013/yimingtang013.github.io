@@ -1,5 +1,6 @@
 let myFullName = "Bill Farmer"; // 10 characters in name...not including space
 // 1 Change the content of the div with class "header" to "[Your name]'s Lab 4"
+document.getElementsByClassName('header')[0].innerHTML = 'Yiming Tang\'\s Lab';
 
 // 2 Insert two paragraphs into the div with the class "content"
 //  Label each paragraph with a distinct class name
@@ -7,6 +8,7 @@ let myFullName = "Bill Farmer"; // 10 characters in name...not including space
 
 // 3 Into the first paragraph, insert the phrase "my name has " length of your name " characters"
 //      (e.g. my name has 10 characters).
+
 
 // 4 & 5 Into the second paragraph tag, return the 3rd character in your first name
 
