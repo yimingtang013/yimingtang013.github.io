@@ -11,9 +11,60 @@
       <div class="wrapper">
         <div class="header">Test JSON page</div>
         <button class="activate">Click me to replace list entries</button>
-        <div class="content"></div>
+        <div class="content">
+            <div class="content">
+                <ol class="countries"></ol>
+            </div>
+            <button id="fetch">Fetch Countries</button>
+            <script>
+                document.querySelector("#fetch").addEventListener('click',()=>{start()});
+        
+                const generateRandom=(countries,memory)=>{
+                    let rand=Math.floor(Math.random()*totalCountries+1);
+                    for(let i=0;i<memory.length;i++){
+                        if(memory[i]==rand){
+                            return generateRandom(totalCountries,memory);
+                        }
+                    }
+                    memory.push(rand);
+                    return rand;
+                }
+        
+                async function start(){
+                    const countries= (await axios.get("https://api.first.org/data/v1/countries")).data.data;
+                    const countryCodes=Object.keys(countries);
+                    const countryNames=Object.values(countries);
+                    const totalCountries=countryCodes.length;
+                    const MAX=25;
+                    let randomArr=[];
+                    let memory=[];
+                    for(let i=0;i<MAX;i++){
+                        rand=generateRandom(totalCountries,memory);
+                        let temp={
+                            [countryCodes[rand-1]]:countryNames[rand-1]
+                        }
+                        randomArr.push(temp);
+                    }
+                    renderList(randomArr,countryCodes,countries);
+                }
+        
+                const renderList=(arr,countryCodes,countries)=>{
+                    const html=document.querySelector('.countries');
+                    html.innerHTML='';
+                    arr.map(country=>{
+                        const code=Object.keys(country)[0];
+                        countryCodes=countryCodes.filter(c=>c!==code)
+                        const name=Object.values(country)[0].country;
+                        let template=`<li><span style="font-weight:bold;">${code}</span> ${name}</li>`;
+                        html.innerHTML+=template;
+                    })
+                    countryCodes.forEach(code=>console.log(countries[`${code}`].country))
+                }
+            </script>
+        </div>
       </div>
     </div>
     <script src="countries.js"></script>
   </body>
 </html>
+
