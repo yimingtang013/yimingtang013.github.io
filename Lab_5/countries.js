@@ -245,3 +245,16 @@ const countries = [
   { name: "Zimbabwe", code: "ZW" },
 ];
 console.log("List of countries in the world", countries);
+
+document.querySelector("#get").addEventListener('click',()=>{start()});
+        
+const generateRandom=(countries,iterator)=>{
+    let randFunc= Math.floor(Math.random()*countries);
+    for(let i=0;i<iterator.length;i++){
+        if(iterator[i] == randFunc){
+            return generateRandom(countries,iterator);
+        }
+    }
+    iterator+=(randFunc);
+    return rand;
+}
