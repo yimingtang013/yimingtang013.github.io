@@ -8,20 +8,25 @@
 </head>
 <body>
     <header>HTML Form Lab</header>
-    <form action="/my-handling-form-page" method="post">
+    <form action="https://fierce-taiga-97625.herokuapp.com/lab" method="post">
         <ul>
-        <li>Name</li>
          <li>
-           <label for="name"></label>
-           <input type="text" id="name" name="user_name">
+          <label for="name">Name</label>
+          <input type="text" id="name" required minlength = "4" maxlength="140" size="10">
          </li>
-         <li>Interest</li>
+         <br>
          <li>
-           <label for="msg"></label>
-           <textarea id="msg" name= "user_message"></textarea>
+          <label for="interest">Interest</label>
+          <textarea id ="interest" name = "interest" row = "5" cols = "33"></textarea>
+           </li>
          </li>
         </ul>
+        <br>
+        <button>Submit</button>
     </form>
 
 </body>
 </html>
+
+
+
