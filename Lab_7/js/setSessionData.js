@@ -1,17 +1,23 @@
 const main = document.getElementById("main");
 
-function getClasses(){
-    
-    let classId =  "courseId"; // Your code here
+function getBusRoute() {
+  let busRoute = ""; // Your code here
 
-    if(typeof classId !== "undefined" & classId !== ""){
-        
-        let classURL =  " https://api.umd.io/v0/courses/" + classId; // Your code here
-        
+  if ((typeof busRoute !== "undefined") & (busRoute !== "")) {
+    let busRouteURL = ""; // Your code here
+
+    fetch(busRouteURL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((route) => {
         // YOUR CODE HERE
-        
-    }
-    else{
-        main.innerHTML = "No value provided";
-    }
+      })
+      .catch((err) => {
+        console.log(err);
+        main.innerHTML = "Invalid bus route";
+      });
+  } else {
+    main.innerHTML = "No value provided";
+  }
 }
