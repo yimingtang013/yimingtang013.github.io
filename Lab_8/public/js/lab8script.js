@@ -15,7 +15,7 @@ async function getData() {
             // Loop to pick 5 random entries
             for (x = 0; x < 5; x++) {
                 /*
-                    Get a random number within the size of the list
+                    Get a random number within the size of the lis
                     Get subreddit, author, title, and ups from record
                     Set the message to be:
                         let message = "<b>Subreddit </b>: " + subreddit + " <b>Author</b>:" + author + " <b>Title</b>:" + title + " <b>Up votes</b>: " + ups;
