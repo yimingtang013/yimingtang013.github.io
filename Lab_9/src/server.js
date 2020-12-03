@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-let taskRoute = //TODO
+let taskRoute = app.get('/', function(request, response){
+    response.sendFile('index.html');//TODO
 let path = require('path')
 let bodyParser = require('body-parser')
 let db = require("./database.js")
