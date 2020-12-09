@@ -296,6 +296,9 @@ function submitNewPerson() {
     });
 
 }
+function submitNewGroup() {
+  
+}
 
 /*
    ------------   Code for onload of page ------------
