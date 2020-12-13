@@ -297,7 +297,45 @@ function submitNewPerson() {
 
 }
 function submitNewGroup() {
-  
+  console.log("Called submitNewGroup");
+  let firstName = document.getElementById("addGroupName").value;
+
+  console.log("groupName:" + firstName);
+  data = { 'firstName': firstName };
+
+  //console.log(JSON.stringify(data))
+  let personURL = "http://localhost:4000/person";
+  const fetchPromise = fetch(personURL, {
+    method: 'POST', headers: {
+      'Content-Type': 'application/json'
+
+    }, body: JSON.stringify(data)
+  });
+
+  let personId;
+  fetchPromise
+    .then((response) => {
+      return response.json();
+    })
+    .then((person) => {
+      console.log("Here POST person");
+      console.log(person);
+
+      let message = "ERROR";
+      if (typeof person.id !== "undefined") {
+        firstName = person.data.firstName;
+        personId = person.id;
+        message = "Message: " + person.message + " firstName: " + firstName + "<br>personId: " + personId + "<br> ";
+      }
+      else if(typeof person !== "undefined"){
+        message = "Message: " + person.message ;
+      }
+      document.getElementById("postNewPersonContent").innerHTML = message;
+    })
+    .catch((err) => {
+      console.log(err);
+      document.getElementById("postNewPersonContent").innerHTML = "Invalid person : " + data.firstName;
+    });
 }
 
 /*
