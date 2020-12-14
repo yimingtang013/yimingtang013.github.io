@@ -340,6 +340,47 @@ function submitNewGroup() {
       document.getElementById("postNewGroupContent").innerHTML = "Invalid person : " + data.groupName;
     });
 }
+/*
+ ------ Search Task ------
+*/
+const endpoint = 'install_sqlite_tables.sql'
+const tasks = [];
+
+fetch(endpoint).then(blob => blob.json()).then(data => tasks.push(data))
+
+function findMatches(wordToMatches, tasks) {
+  return tasks.filter(place => {
+
+    const placeHolder = new RegExp(wordToMatches, 'gi');
+    return place.task.match(regex) || place.state.match(regex) 
+
+  });
+
+function displayMatches() {
+  const matchArray = findMatches(this.value, tasks);
+  const html = matchArray.map(place => {
+    const regex = new RegExp(this.value, 'gi');
+    const taskName = place.tasks.replace(regex, `<span class = "h1">${this.value}`)
+    return 
+      `<li>
+        <span class = "name">${place.task}, ${place.state}</span>
+        <span class = "population">${place.population}</span>
+      </li>`
+  })
+  suggestions.innerHTML = html;
+
+}
+
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+searchInput.addEventListener('change', displayMatches); 
+searchInput.addEventListener('keyup', displayMatches); 
+
+}
+
+
+
 
 /*
    ------------   Code for onload of page ------------
