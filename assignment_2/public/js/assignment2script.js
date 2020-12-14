@@ -349,7 +349,7 @@ const tasks = [];
 fetch(endpoint).then(blob => blob.json()).then(data => tasks.push(data))
 
 function findMatches(wordToMatches, tasks) {
-  return tasks.filter(place => {
+  return tasks.filter(person => {
 
     const placeHolder = new RegExp(wordToMatches, 'gi');
     return place.task.match(regex) || place.state.match(regex) 
@@ -360,11 +360,11 @@ function displayMatches() {
   const matchArray = findMatches(this.value, tasks);
   const html = matchArray.map(place => {
     const regex = new RegExp(this.value, 'gi');
-    const taskName = place.tasks.replace(regex, `<span class = "h1">${this.value}`)
+    const taskName = person.tasks.replace(regex, `<span class = "h1">${this.value}`)
     return 
       `<li>
-        <span class = "name">${place.task}, ${place.state}</span>
-        <span class = "population">${place.population}</span>
+        <span class = "name">${person.task}, ${person.state}</span>
+        <span class = "population">${person.group}</span>
       </li>`
   })
   suggestions.innerHTML = html;
