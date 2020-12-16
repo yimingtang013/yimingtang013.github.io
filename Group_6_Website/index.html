@@ -5,7 +5,13 @@
     <title>YAM's Polling Map Service</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Cinzel+Decorative:700" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
+    <script
+    src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""
+  ></script>
+  <script type="text/javascript" src="call.js"></script>
+  
 
   </head>
 
@@ -31,6 +37,20 @@
         <h2>Welcome</h2>
 
         <p>Map</p>
+        <div>
+          <form class="targetForm" id="labForm">
+            <label for="agency">Agency</label>
+            <input type="text" id="agency" name="agency" placeholder="Agency Name"/>
+            <br />
+            <button id="formBtn">List</button>
+            <button id="mapBtn">Map</button>
+            <button id='allBtn'>Get All Offices</button>
+          </form>
+        </div>
+        <div class = 'listcontainer'></div>
+      </div>
+        <div id="mapid"></div>
+    </div>
         <div id="mapid"></div>
         <script>
           const mymap = L.map('mapid').setView([38.9869, -76.9426], 13);
