@@ -17,9 +17,18 @@ async function getData() {
             author + " <b>Title</b>:" + title + " <b>Up votes</b>: " + ups;
             for (x = 0; x < 5; x++) {
                 listSize.get(x.url);
-                <li>
+                <ul>
+                    <li>
                     console.log(message)
-                </li>
+                    </li>
+                    <li>
+                        "redditList: <br> Subreddit</br>"
+                    </li>
+                    <li>
+                        "chartValues: <br>authors</br>"
+                    </li>
+                </ul>
+                
                 /*
                     Get a random number within the size of the lis
                     Get subreddit, author, title, and ups from record
@@ -59,4 +68,4 @@ window.onload = async function makeChart() {
     chart.render();
 }
 
-//window.onload = makeChart();
+window.onload = makeChart();
