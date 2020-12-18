@@ -2,7 +2,7 @@
 let url = "https://www.reddit.com/r/popular.json";
 let chart = "";
 console.log(url);
-//const fetchPromise = fetch(url);
+const fetchPromise = fetch(url);
 
 let settings = { method: "Get" };
 let chartValues = [];
@@ -13,7 +13,13 @@ async function getData() {
         .then((json) => {
             let listSize = json.data.children.length;
             // Loop to pick 5 random entries
+            let message = "<b>Subreddit </b>: " + subreddit + " <b>Author</b>:" + 
+            author + " <b>Title</b>:" + title + " <b>Up votes</b>: " + ups;
             for (x = 0; x < 5; x++) {
+                listSize.get(x.url);
+                <li>
+                    console.log(message)
+                </li>
                 /*
                     Get a random number within the size of the lis
                     Get subreddit, author, title, and ups from record
@@ -45,7 +51,7 @@ window.onload = async function makeChart() {
             { 
                 type: "column",
                 name: "Popular Reddit",
-                dataPoints: // WHAT GOES HERE???
+                dataPoints: listSize.get(x.url)  // WHAT GOES HERE???
             }
         ]
     });
