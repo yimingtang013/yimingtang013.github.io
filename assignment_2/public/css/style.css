@@ -36,6 +36,13 @@
     margin:10px;
 }
 
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    font-size: 1.3em;
+    font-weight: Bold;
+    font-style: italic;
+  }
+  
+
 .header { 
     display: flex;
     background-color: #e6f0e3;
