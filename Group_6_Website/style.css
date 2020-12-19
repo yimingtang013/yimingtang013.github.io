@@ -1,4 +1,4 @@
-/* || General setup */
+
 
 html, body {
     margin: 0;
@@ -7,7 +7,7 @@ html, body {
   
   html {
     font-size: 10px;
-    background-color: #a9a9a9;
+    background-color: #34568B;
   }
   
   body {
@@ -16,7 +16,6 @@ html, body {
     margin: 0 auto;
   }
   
-  /* || typography */
   
   h1, h2, h3 {
     font-family: 'Times New Roman';
@@ -36,7 +35,7 @@ html, body {
   
   h2 {
     font-size: 3rem;
-    text-align: center;
+    text-align: left;
   }
   
   h3 {
@@ -44,16 +43,28 @@ html, body {
   }
   
   p, li {
-    font-size: 1.6rem;
-    line-height: 1.5;
+    font-size: 2rem;
+    line-height: 2;
   }
   
   /* || header layout */
-  
+   
+
   header {
-    margin-bottom: 10px;
+    padding: 0 20px;
+    min-height: 75px;
+    min-width: 300px;
+    background: #6B5B95;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: capitalize;
     flex-flow: row wrap;
+    text-align: center;
+    border-radius: 25px;
+    margin-bottom: 10px;
   }
   
   body > * {
@@ -62,7 +73,7 @@ html, body {
   }
   
   main, header, nav, article, aside, footer, section {
-    background-color: skyblue;
+    background-color: #6B5B95;
     padding: 1%;
   }
   
