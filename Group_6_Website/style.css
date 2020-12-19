@@ -117,23 +117,6 @@ html, body {
     font-size: 23px;
     color:springgreen;
   } 
-
-  aside {
-    flex: 1;
-    margin-left: 10px;
-    padding: 1%;
-  }
-  
-  aside a {
-    display: block;
-    float: left;
-    width: 50%;
-  }
-  
-  aside img {
-    max-width: 100%;
-  }
-  
   footer {
     margin-top: 10px;
     
