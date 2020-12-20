@@ -49,28 +49,13 @@ function getMap(e) {
     })
       .then((data) => data.json())
       .then((data) => {
-        const aLen = Object.keys(data.agencies).length;
+        const aLen = Object.keys(data.locations).length;
         console.log(data);
-  
-        if (document.contains(document.querySelector('.officelist'))) {
-          document.querySelector('.officelist').remove();
-        }
-        // add list
-        const display = document.createElement('ol');
-        display.setAttribute('class', 'officelist');
-        container.appendChild(display);
-  
-        if (data.agencies[0].hasOwnProperty('Error_Message')) {
-          display.append(data.agencies[0].Error_Message);
-          display.append(document.createElement('br'));
-          display.append(`Here is a list of valid agencies: ${data.agencies[0].Agency}`);
-        } else {
-        // adds agency info
-          for (let i = 0; i < aLen; i++) {
+            for (let i = 0; i < aLen; i++) {
             const office = data.agencies[i];
             const agencies = document.createElement('li');
             const br = document.createElement('br');
-            // add variables to list
+  
             agencies.textContent = `Name: ${office.description}`;
             display.appendChild(agencies);
             agencies.append(br);
@@ -79,39 +64,34 @@ function getMap(e) {
             agencies.append(`Agency: ${office.agency}`);
           }
         }
-      });
-  }
+  
+  ,
+
   function getAll(e) {
-    e.preventDefault(); // this prevents your page reloading on button click
+    e.preventDefault(); 
   
     fetch('/api', {
       method: 'GET'
     })
       .then((data) => data.json())
       .then((data) => {
-        const aLen = Object.keys(data.agencies).length;
+        const aLen = Object.keys(data.locations).length;
         const container = document.querySelector('.listcontainer');
   
-        if (document.contains(document.querySelector('.officelist'))) {
-          document.querySelector('.officelist').remove();
+        if (document.contains(document.querySelector('.locationlist'))) {
+          document.querySelector('.locationlist').remove();
         }
-        // add list
         const display = document.createElement('ol');
-        display.setAttribute('class', 'officelist');
+        display.setAttribute('class', 'locationlist');
         container.appendChild(display);
   
-        // adds agency info
         for (let i = 0; i < aLen; i++) {
-          const office = data.agencies[i];
-          const agencies = document.createElement('li');
-          const br = document.createElement('br');
-          // add variables to list
-          agencies.textContent = `Name: ${office.description}`;
-          display.appendChild(agencies);
+          const locations = data.locations[i];
+          agencies.textContent = `Name: ${locations.description}`;
+          display.appendChild(locations);
           agencies.append(br);
-          agencies.append(`Address: ${office.human_address}`);
           agencies.append(document.createElement('br'));
-          agencies.append(`Agency: ${office.agency}`);
+          agencies.append(`Location: ${locations.locations}`);
         }
   })
 }
