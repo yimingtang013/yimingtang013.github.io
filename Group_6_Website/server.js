@@ -80,13 +80,12 @@ function processDataForList(req, res) {
 }
 
 function retrieveAll(res) {
-  const baseURL = 'https://data.princegeorgescountymd.gov/resource/baxv-ntrj.json'; 
+  const baseURL = 'data.princegeorgescountymd.gov/Government/Polling-Places/e2wd-vu2n'; 
   const packet = ({ 'locations': [] });
 
   fetch(baseURL)
     .then((r) => r.json())
     .then((data) => {
-      // process data
       for (let i = 0; i < data.length; i++ ) {
         const polling = data[i];
         const { polling } = polling;
