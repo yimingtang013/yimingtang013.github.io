@@ -25,7 +25,7 @@
         <ul>
           <li><a href="home.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="source.html">Help</a></li>
+          <li><a href="source.html">Documentation</a></li>
         </ul>
       </nav>
     </header>
@@ -39,7 +39,6 @@
             <br/>
             <button id="formBtn">Catalog</button>
             <button id="mapBtn">Plot</button>
-            <button id='allBtn'>Get All Polling</button>
           </form>
         </div>
         <div class = 'listcontainer'></div>
@@ -49,7 +48,6 @@
         
         <script>
           const mymap = L.map('mapid').setView([38.9869, -76.9426], 13);
-          // eslint-disable-next-line no-undef
           L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 17,
@@ -62,7 +60,6 @@
           const marker = L.marker([38.988251, -76.941577]).addTo(mymap);
           marker.bindPopup('University of Maryland').openPopup();
           const layerGroup = L.layerGroup().addTo(mymap);
-          // adds MAP
           const longLat = [];
           const name = [];
           const address = [];

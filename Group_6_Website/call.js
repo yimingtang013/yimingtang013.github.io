@@ -1,5 +1,5 @@
 function getMap(e) {
-    e.preventDefault(); // this prevents your page reloading on button click
+    e.preventDefault(); 
     const target = document.querySelector('#labForm');
     const btn = document.querySelector('#mapmBtn');
     const container = document.querySelector('.listcontainer');
@@ -15,33 +15,19 @@ function getMap(e) {
     })
       .then((data) => data.json()) // note: we didn't send JSON, so there's no JSON to get.
       .then((data) => {
-        console.log(data.agencies[0].hasOwnProperty('Error_Message'));
-        const aLen = Object.keys(data.agencies).length;
-        // add list
+        console.log(data.locations[0].hasOwnProperty('Error_Message'));
+        const aLen = Object.keys(data.locations).length;
         const display = document.createElement('ol');
         display.setAttribute('class', 'officelist');
-        if (data.agencies[0].hasOwnProperty('Error_Message')) {
+        if (data.locations[0].hasOwnProperty('Error_Message')) {
           layerGroup.clearLayers();
           if (document.contains(document.querySelector('.officelist'))) {
             document.querySelector('.officelist').remove();
           }
           container.appendChild(display);
-          display.append(data.agencies[0].Error_Message);
+          display.append(data.locations[0].Error_Message);
           display.append(document.createElement('br'));
-          display.append(`Here is a list of valid agencies: ${data.agencies[0].Agency}`);
-        } else{
-          layerGroup.clearLayers();
-          console.log('run');
-          for (let i = 0; i < aLen; i++) {
-            longLat[i] = ([data.agencies[i].lat, data.agencies[i].long]);
-            name[i] = data.agencies[i].description;
-            address[i] = data.agencies[i].human_address;
-            agency[i] = data.agencies[i].agency;
-          }
-          for (let j = 0; j < aLen; j++) {
-            const mark = L.marker(longLat[j]).addTo(layerGroup);
-            mark.bindPopup(`${name[j]} <br> ${address[j]} <br> Agency: ${agency[j]}`);
-          }
+          display.append(`Here is a list of valid agencies: ${data.locations[0].Agency}`);
         }
       });
   }
@@ -127,18 +113,5 @@ function getMap(e) {
           agencies.append(document.createElement('br'));
           agencies.append(`Agency: ${office.agency}`);
         }
-        // btn.setAttribute("disabled", true);
-        layerGroup.clearLayers();
-        // eslint-disable-next-line no-undef
-        for (let i = 0; i < aLen; i++) {
-          longLat[i] = ([data.agencies[i].lat, data.agencies[i].long]);
-          name[i] = data.agencies[i].description;
-          address[i] = data.agencies[i].human_address;
-          agency[i] = data.agencies[i].agency;
-        }
-        for (let j = 0; j < aLen; j++) {
-          const mark = L.marker(longLat[j]).addTo(layerGroup);
-          mark.bindPopup(`${name[j]} <br> ${address[j]} <br> Agency: ${agency[j]}`);
-        }
-      });
-  }
+  })
+}
