@@ -5,7 +5,6 @@ const fetch = require('node-fetch');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const valid = ['HEALTH', 'FIRE', 'PSC', 'DER', 'POLICE', 'SHERIFF', 'COUNTY EXECUTIVE', 'DPWT', 'COURTS', 'OCS', 'SOIL CONSERVATION', 'OHRM', 'OIT'];
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -13,38 +12,34 @@ app.use(express.json());
 app.use(express.static('public'));
 
 function processDataForFrontEnd(req, res) {
-  const baseURL = 'https://data.princegeorgescountymd.gov/resource/baxv-ntrj.json'; // Enter the URL for the data you would like to retrieve here
-  const agency = req.body.agency.toUpperCase();
-  console.log(agency);
-  const packet = ({ 'agencies': [] });
-  if (!valid.includes(agency)) {
-    packet.agencies.push({
-      'Error_Message': `Sorry we could not find a PG County Office for ${req.body.agency}`,
-      'Agency': valid
+  const baseURL = 'data.princegeorgescountymd.gov/Government/Polling-Places/e2wd-vu2n'; 
+  const polling = req.body.locations.toUpperCase();
+  console.log(polling);
+  const packet = ({ 'locations': [] });
+  if (!valid.includes(polling)) {
+    packet.locations.push({
+      'Error_Message': `Sorry we could not find a Polling Location for ${req.polling.locations}`,
+      'Polling': valid
     });
     res.json(packet);
   } else {
     fetch(baseURL)
       .then((r) => r.json())
       .then((data) => {
-        // process data
+      
         for (let i = 0; i < data.length; i++ ) {
-          if (data[i].agency === agency) {
-            const office = data[i];
-            const { address } = office;
-            const street = JSON.parse(address.human_address);
-            packet.agencies.push({
-              'description': office.description,
-              'human_address': `${street.address} ${street.city} ${street.state} ${street.zip}`,
-              'city': street.city,
-              'agency': office.agency,
-              'long': office.address.longitude,
-              'lat': office.address.latitude
+          if (data[i].locations === locations) {
+            const locations = data[i];
+            const { polling } = locations;
+            packet.locations.push({
+              'description': locations.description,
+              'long': locations.polling.longitude,
+              'lat': locations.polling.latitude
             });
           }
         }
         console.log(packet);
-        res.json(packet); // here's where we return data to the front end
+        res.json(packet); 
       })
       .catch((err) => {
         console.log(err);
@@ -53,36 +48,31 @@ function processDataForFrontEnd(req, res) {
   }
 }
 function processDataForList(req, res) {
-  const baseURL = 'https://data.princegeorgescountymd.gov/resource/baxv-ntrj.json'; // Enter the URL for the data you would like to retrieve here
-  const agency = req.body.agency.toUpperCase();
-  console.log(agency);
-  const packet = ({ 'agencies': [] });
-  if (!valid.includes(agency)) {
-    packet.agencies.push({
-      'Error_Message': `Sorry we could not find a PG County Office for ${req.body.agency}`,
-      'Agency': valid
+  const baseURL = 'data.princegeorgescountymd.gov/Government/Polling-Places/e2wd-vu2n'; 
+  const polling = req.body.polling.toUpperCase();
+  console.log(polling);
+  const packet = ({ 'locations': [] });
+  if (!valid.includes(locations)) {
+    packet.locations.push({
+      'Error_Message': `Sorry we could not find a PG County Polling location for ${req.body.locations}`,
+      'Polling': valid
     });
     res.json(packet);
   } else {
     fetch(baseURL)
       .then((r) => r.json())
       .then((data) => {
-        // process data
         for (let i = 0; i < data.length; i++ ) {
-          if (data[i].agency === agency) {
-            const office = data[i];
-            const { address } = office;
-            const street = JSON.parse(address.human_address);
-            packet.agencies.push({
-              'description': office.description,
-              'human_address': `${street.address} ${street.city}, ${street.state} ${street.zip}`,
-              'city': street.city,
-              'agency': office.agency
+          if (data[i].polling === polling) {
+            const polling = data[i];
+            packet.polling.push({
+              'description': locations.description,
+=              'polling': polling.locations
             });
           }
         }
         console.log(packet);
-        res.json(packet); // here's where we return data to the front end
+        res.json(packet); 
       })
       .catch((err) => {
         console.log(err);
@@ -92,28 +82,24 @@ function processDataForList(req, res) {
 }
 
 function retrieveAll(res) {
-  const baseURL = 'https://data.princegeorgescountymd.gov/resource/baxv-ntrj.json'; // Enter the URL for the data you would like to retrieve here
-  const packet = ({ 'agencies': [] });
+  const baseURL = 'https://data.princegeorgescountymd.gov/resource/baxv-ntrj.json'; 
+  const packet = ({ 'locations': [] });
 
   fetch(baseURL)
     .then((r) => r.json())
     .then((data) => {
       // process data
       for (let i = 0; i < data.length; i++ ) {
-        const office = data[i];
-        const { address } = office;
-        const street = JSON.parse(address.human_address);
-        packet.agencies.push({
-          'description': office.description,
-          'human_address': `${street.address} ${street.city}, ${street.state} ${street.zip}`,
-          'city': street.city,
-          'agency': office.agency,
-          'long': office.address.longitude,
-          'lat': office.address.latitude
+        const polling = data[i];
+        const { polling } = polling;
+        packet.locations.push({
+          'description': polling.description,
+          'long': locations.polling.longitude,
+          'lat': locations.polling.latitude
         });
       }
       console.log(packet);
-      res.json(packet); // here's where we return data to the front end
+      res.json(packet); 
     })
     .catch((err) => {
       console.log(err);

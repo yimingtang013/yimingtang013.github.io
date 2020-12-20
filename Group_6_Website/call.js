@@ -27,7 +27,7 @@ function getMap(e) {
           container.appendChild(display);
           display.append(data.locations[0].Error_Message);
           display.append(document.createElement('br'));
-          display.append(`Here is a list of valid agencies: ${data.locations[0].Agency}`);
+          display.append(`Here is a list of valid locations: ${data.locations[0].Locations}`);
         }
       });
   }
@@ -52,16 +52,16 @@ function getMap(e) {
         const aLen = Object.keys(data.locations).length;
         console.log(data);
             for (let i = 0; i < aLen; i++) {
-            const office = data.agencies[i];
-            const agencies = document.createElement('li');
+            const polling = data.locations[i];
+            const locations = document.createElement('li');
             const br = document.createElement('br');
   
-            agencies.textContent = `Name: ${office.description}`;
-            display.appendChild(agencies);
-            agencies.append(br);
-            agencies.append(`Address: ${office.human_address}`);
-            agencies.append(document.createElement('br'));
-            agencies.append(`Agency: ${office.agency}`);
+            locations.textContent = `Name: ${polling.description}`;
+            display.appendChild(locations);
+            locations.append(br);
+            locations.append(`Address: ${polling.human_address}`);
+            locations.append(document.createElement('br'));
+            locations.append(`Agency: ${polling.locations}`);
           }
         }
   
@@ -87,11 +87,11 @@ function getMap(e) {
   
         for (let i = 0; i < aLen; i++) {
           const locations = data.locations[i];
-          agencies.textContent = `Name: ${locations.description}`;
+          locations.textContent = `Name: ${locations.description}`;
           display.appendChild(locations);
-          agencies.append(br);
-          agencies.append(document.createElement('br'));
-          agencies.append(`Location: ${locations.locations}`);
+          locations.append(br);
+          locations.append(document.createElement('br'));
+          locations.append(`Location: ${polling.locations}`);
         }
   })
 }
