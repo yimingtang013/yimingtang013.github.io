@@ -1,5 +1,3 @@
-// These are our required libraries to make the server work.
-
 const express = require('express');
 const fetch = require('node-fetch');
 

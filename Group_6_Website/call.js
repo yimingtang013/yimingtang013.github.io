@@ -13,16 +13,16 @@ function getMap(e) {
       },
       body: JSON.stringify(Object.fromEntries(formToSend))
     })
-      .then((data) => data.json()) // note: we didn't send JSON, so there's no JSON to get.
+      .then((data) => data.json()) 
       .then((data) => {
         console.log(data.locations[0].hasOwnProperty('Error_Message'));
         const aLen = Object.keys(data.locations).length;
         const display = document.createElement('ol');
-        display.setAttribute('class', 'officelist');
+        display.setAttribute('class', 'pollinglist');
         if (data.locations[0].hasOwnProperty('Error_Message')) {
           layerGroup.clearLayers();
-          if (document.contains(document.querySelector('.officelist'))) {
-            document.querySelector('.officelist').remove();
+          if (document.contains(document.querySelector('.pollinglist'))) {
+            document.querySelector('.pollinglist').remove();
           }
           container.appendChild(display);
           display.append(data.locations[0].Error_Message);
@@ -33,7 +33,7 @@ function getMap(e) {
   }
   
   function sendForm(e) {
-    e.preventDefault(); // this prevents your page reloading on button click
+    e.preventDefault(); 
     const target = document.querySelector('#labForm');
     const btn = document.querySelector('#formBtn');
     const container = document.querySelector('.listcontainer');
@@ -59,9 +59,8 @@ function getMap(e) {
             locations.textContent = `Name: ${polling.description}`;
             display.appendChild(locations);
             locations.append(br);
-            locations.append(`Address: ${polling.human_address}`);
             locations.append(document.createElement('br'));
-            locations.append(`Agency: ${polling.locations}`);
+            locations.append(`Polling: ${polling.locations}`);
           }
         }
   
