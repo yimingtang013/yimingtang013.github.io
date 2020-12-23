@@ -65,7 +65,7 @@ function processDataForList(req, res) {
             const polling = data[i];
             packet.polling.push({
               'description': locations.description,
-=              'polling': polling.locations
+             'polling': polling.locations
             });
           }
         }
